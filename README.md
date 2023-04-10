@@ -24,3 +24,6 @@ Install the following modules using the following commands
     
 8. NLTK
     command - pip install nltk
+
+Command to run 
+      python app.py
