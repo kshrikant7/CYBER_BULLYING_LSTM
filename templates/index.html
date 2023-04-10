@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<style>
+     body{
+        background-image: url('https://addepto.com/wp-content/uploads/2022/05/background-images_www-3.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    
+    </style>
+<body>
+    <h3 style="color:rgb(249, 59, 59);">Cyber Bullying Detection Using LSTM </h3>
+<div class="row">
+    <div class="col-6" style="text-align: right;">
+        <form action="/" method="post">
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="post" placeholder="What's on your mind?" type="text">
+                &nbsp;<input type="submit" name="submit" value="Post">
+            </div>
+        </form>
+    </div>
+    <div class="col-4" style="text-align: left; color: rgb(17, 22, 165);">
+        <a href="" class="btn btn-outline-dark">Reputation Score: {{ reputation }}</a>
+    </div>
+</div>
+
+{% if posts is defined %}
+<br /><hr><br />
+    {% for post in posts %}
+    <div class="card border-dark mb-3 text-center">
+        <div class="card-body text-dark">
+            <div class="row">
+                <div class="col-4" style="text-align: right;">
+                        <img src="{{ posts_metadata[post['publisher']] }}" style="max-width:25%; max-height:auto" alt="Display Picture"><br />
+                        <strong>{{  post["publisher"] }}</strong>
+                </div>
+                <div class="col-6" style="text-align: left;">
+                    <h5 class="card-title">{{ post["text"] }}</h5>
+                    <p class="card-text"><em>{{ post["nature"] }}</em></p>
+                    <p class="card-text"><em>{{ post["timestamp"] }}</em></p>
+                </div>
+            </div>
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+        </div>
+    </div>
+    <br />
+    {% endfor %}
+{% endif %}
+<script>
+    function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+    }
+</script>
+</body>
+{% endblock %}
