@@ -27,3 +27,5 @@ Install the following modules using the following commands
 
 Command to run 
       python app.py
+
+Instead of cloning fork the project🙃
